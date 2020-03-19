@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopfy/pages/login.page.dart';
 
 void main() => runApp(MyApp());
 
@@ -7,24 +8,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Shopfy',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Container(
-        child: Center(
-          child: Text("fdfdfds"),
-        ),
-      ),
+      home: LoginPage(),
     );
   }
 }
