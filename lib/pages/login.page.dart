@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopfy/pages/home.page.dart';
 import 'package:shopfy/pages/signup.page.dart';
 import 'package:shopfy/widgets/social_button.dart';
 
@@ -122,7 +123,13 @@ class LoginPage extends StatelessWidget {
                                 "OK",
                                 style: TextStyle(color: Colors.white),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (BuildContext context) =>
+                                            HomePage()));
+                              },
                             ))
                       ]),
                 ),
