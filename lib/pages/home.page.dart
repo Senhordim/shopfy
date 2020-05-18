@@ -1,6 +1,5 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
+import 'package:shopfy/pages/product.page.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -48,7 +47,7 @@ class HomePage extends StatelessWidget {
                 ),
                 Container(
                   height: 320,
-                  child: productList(),
+                  child: productList(context),
                 ),
               ],
             )),
@@ -126,18 +125,18 @@ Widget categoryitem() {
   );
 }
 
-Widget productList() {
+Widget productList(BuildContext context) {
   return ListView(
     scrollDirection: Axis.horizontal,
     children: <Widget>[
-      productCard(),
-      productCard(),
-      productCard(),
+      productCard(context),
+      productCard(context),
+      productCard(context),
     ],
   );
 }
 
-Widget productCard() {
+Widget productCard(BuildContext context) {
   return Container(
     width: 170,
     padding: EdgeInsets.all(10),
@@ -148,12 +147,20 @@ Widget productCard() {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Container(
-          child: Image.asset(
-            "assets/images/product-1.png",
-            width: 170,
-            height: 170,
-            fit: BoxFit.cover,
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (BuildContext context) => ProductoPage()));
+          },
+          child: Container(
+            child: Image.asset(
+              "assets/images/product-1.png",
+              width: 170,
+              height: 170,
+              fit: BoxFit.cover,
+            ),
           ),
         ),
         SizedBox(
