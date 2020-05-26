@@ -1,6 +1,19 @@
 import 'package:flutter/material.dart';
 
 class ProductoPage extends StatelessWidget {
+  final String image;
+  final String title;
+  final String description;
+  final String brand;
+  final double price;
+
+  ProductoPage(
+      {@required this.image,
+      @required this.title,
+      @required this.description,
+      @required this.brand,
+      @required this.price});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +28,7 @@ class ProductoPage extends StatelessWidget {
                 pinned: true,
                 flexibleSpace: FlexibleSpaceBar(
                   centerTitle: true,
-                  background: Image.asset("assets/images/product-10.png",
+                  background: Image.asset(image,
                       width: double.infinity, fit: BoxFit.fitWidth),
                 ),
               )
@@ -25,16 +38,16 @@ class ProductoPage extends StatelessWidget {
             children: <Widget>[
               Padding(
                   padding: EdgeInsets.only(top: 10, left: 10, right: 10),
-                  child: Text("Dry Fit Long Sleev",
+                  child: Text(title,
                       style: TextStyle(
                           fontSize: 26, fontWeight: FontWeight.bold))),
               Padding(
                 padding: EdgeInsets.all(10),
-                child: Text("by Nike"),
+                child: Text(brand),
               ),
               Padding(
                   padding: EdgeInsets.all(10),
-                  child: Text("Dry Fit Long Sleev",
+                  child: Text(description,
                       style: TextStyle(fontWeight: FontWeight.bold))),
             ],
           )),

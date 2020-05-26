@@ -24,7 +24,6 @@ class TabsPage extends StatelessWidget {
         unselectedLabelColor: Colors.black38,
         indicatorSize: TabBarIndicatorSize.label,
         indicatorPadding: EdgeInsets.all(5),
-        indicatorColor: ,
       ),
     );
   }

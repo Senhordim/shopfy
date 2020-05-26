@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:shopfy/pages/product.page.dart';
+import 'package:shopfy/widgets/category/category_list.dart';
+import 'package:shopfy/widgets/product/product_card.dart';
+import 'package:shopfy/widgets/product/product_list.dart';
+import 'package:shopfy/widgets/search_box.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -17,7 +20,7 @@ class HomePage extends StatelessWidget {
                 SizedBox(
                   height: 40,
                 ),
-                search(),
+                SearchBox(),
                 SizedBox(
                   height: 30,
                 ),
@@ -25,7 +28,7 @@ class HomePage extends StatelessWidget {
                   "Categories",
                   style: TextStyle(fontSize: 30),
                 ),
-                categoryList(),
+                CategoryList(),
                 SizedBox(
                   height: 40,
                 ),
@@ -47,147 +50,11 @@ class HomePage extends StatelessWidget {
                 ),
                 Container(
                   height: 320,
-                  child: productList(context),
+                  child: ProductList(),
                 ),
               ],
             )),
       ),
     );
   }
-}
-
-Widget search() {
-  return Container(
-    padding: EdgeInsets.only(left: 20),
-    width: double.infinity,
-    decoration: BoxDecoration(
-      color: Colors.black.withOpacity(0.1),
-      borderRadius: BorderRadius.all(Radius.circular(30)),
-    ),
-    height: 60,
-    child: Row(
-      children: <Widget>[
-        Icon(Icons.search),
-        Container(
-          width: 276,
-          padding: EdgeInsets.only(left: 10),
-          child: TextFormField(
-            keyboardType: TextInputType.text,
-            decoration: InputDecoration(
-              border: InputBorder.none,
-            ),
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.blue,
-            ),
-          ),
-        )
-      ],
-    ),
-  );
-}
-
-Widget categoryList() {
-  return Container(
-    height: 90,
-    child: ListView(
-      scrollDirection: Axis.horizontal,
-      children: <Widget>[
-        categoryitem(),
-        categoryitem(),
-        categoryitem(),
-        categoryitem(),
-        categoryitem(),
-        categoryitem()
-      ],
-    ),
-  );
-}
-
-Widget categoryitem() {
-  return Container(
-    width: 70,
-    height: 70,
-    margin: EdgeInsets.all(10),
-    padding: EdgeInsets.all(10),
-    decoration: BoxDecoration(
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black12,
-            offset: Offset(1, 1),
-            blurRadius: 5,
-            spreadRadius: 2,
-          )
-        ],
-        borderRadius: BorderRadius.all(Radius.circular(64))),
-    child: Image.asset("assets/images/Icon_Devices.png"),
-  );
-}
-
-Widget productList(BuildContext context) {
-  return ListView(
-    scrollDirection: Axis.horizontal,
-    children: <Widget>[
-      productCard(context),
-      productCard(context),
-      productCard(context),
-    ],
-  );
-}
-
-Widget productCard(BuildContext context) {
-  return Container(
-    width: 170,
-    padding: EdgeInsets.all(10),
-    margin: EdgeInsets.only(right: 12),
-    color: Color(0xffCECECE),
-    alignment: Alignment.center,
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        GestureDetector(
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (BuildContext context) => ProductoPage()));
-          },
-          child: Container(
-            child: Image.asset(
-              "assets/images/product-1.png",
-              width: 170,
-              height: 170,
-              fit: BoxFit.cover,
-            ),
-          ),
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Text(
-          "Nike Dry-Fit Long Sleeve",
-          style: TextStyle(
-              fontSize: 16,
-              color: Color(0xff333333),
-              fontWeight: FontWeight.w500),
-        ),
-        SizedBox(
-          height: 20,
-        ),
-        Text(
-          "Nike",
-          style: TextStyle(fontSize: 14, color: Color(0xff333333)),
-        ),
-        Text(
-          "\$ 100.00",
-          style: TextStyle(
-              fontSize: 14,
-              color: Color(0xff03963a),
-              fontWeight: FontWeight.w700),
-        ),
-      ],
-    ),
-  );
 }
